@@ -17,15 +17,21 @@ gulp.task 'coffee', () ->
       .pipe coffee()
       .pipe gulp.dest('./public/js')
 
-gulp.task 'css', -> 
-  sass config.sassPath + '/style.scss',
+gulp.task 'vendor-css', -> 
+  sass config.sassPath + '/vendors.scss',
+        precision: 8
         loadPath: [
-          './css'
           config.bowerDir + '/bootstrap-sass-official/assets/stylesheets'
           config.bowerDir + '/fontawesome/scss'
         ]
      .pipe gulp.dest './public/css'
 
+gulp.task 'css', -> 
+  sass config.sassPath + '/style.scss',
+        loadPath: [
+          './css'
+        ]
+     .pipe gulp.dest './public/css'
 
 gulp.task 'icons', ->
   gulp.src config.bowerDir + '/fontawesome/fonts/**.*' 
@@ -34,6 +40,7 @@ gulp.task 'icons', ->
 
 gulp.task 'build', [
   'coffee'
+  'vendor-css'
   'css'
   'ect'
   'icons'
