@@ -4,5 +4,7 @@
 /bower_components
 /dist
 /preview
-/public/*
 .sass-cache
+/css
+/js
+/src
