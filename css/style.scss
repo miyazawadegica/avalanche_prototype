@@ -1,0 +1,8 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+$font-family-base: 'Noto Sans Japanese', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', Arial, Verdana, sans-serif;
+// Import bootstrap and fontawesome
+@import "bootstrap";
+@import "font-awesome";
+
+@import "layout";
+@import "parts";
