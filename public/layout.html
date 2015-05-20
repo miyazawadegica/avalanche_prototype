@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avalanche</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="/public/css/vendors.css">
+<link rel="stylesheet" href="/public/css/style.css">
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/layout.js"></script>
+</head>
+<body>
+  <header class="navbar navbar-default navbar-fixed-top header">
+  <div class="navbar-header">
+    <a href="/" class="navbar-brand"><b>A</b><span>valanche</span></a>
+  </div>
+  <div class="container-fluid">
+    <a class="navbar-toggle navbar-toggle-left btn btn-default " href="#" id="js-switch-side-bar"><i class="fa fa-bars"></i> </a>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for...">
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right off-right" role="navigation">
+      <li class="quick-menu header--quick-menu">
+        <a id="account-menu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-circle icon-circle-header"><i class="fa fa-user"></i></span><span class="quick-menu-label mg-l-md">shingo.miyazawa <i class="fa fa-caret-down"></i></span></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
+          <li class="quick-menu-item" role="presentation"><a role="menuitem" tabindex="-1" href="/avalanche/preferences"><i class="fa fa-gear mg-r-md"></i>設定</a></li>
+          <li class="divider"></li>
+          <li class="quick-menu-item" role="presentation"><a role="menuitem" tabindex="-1" href="/"><i class="fa fa-sign-out mg-r-md"></i>ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+  <section class="body">
+    <aside class="sidebar">
+  <nav class="main-navigation">
+    <ul>
+      <li class="main-navigation-item"><a href="/avalanche/orders"><i class="fa fa-shopping-cart"></i><span> オーダー</span></a></li>
+      <li class="main-navigation-item is-active"><a href="/avalanche/products"><i class="fa fa-cube"></i><span> 商品</span></a></li>
+      <li class="main-navigation-item"><a href="/avalanche/customers"><i class="fa fa-users"></i><span> 顧客</span></a></li>
+      <li class="main-navigation-item dropdown show-on-hover">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-database"></i><span> 管理 </span><i class="fa right-arrow"></i></a>
+        <ul class="dropdown-menu ">
+          <li><a href="/avalanche/templates"><i class="fa fa-files-o"></i>  カートテンプレート</a></li>
+          <li><a href="/avalanche/email_templates"><i class="fa fa-envelope"></i> メールテンプレート</a></li>
+          <li><a href="/avalanche/coupons"><i class="fa fa-scissors"></i> クーポン</a></li>
+          <li class="divider"></li>
+          <li><a href="/avalanche/setting"><i class="fa fa-cog"></i></i> ストア設定</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
+    <section class="main-content">
+      <div class="content-wrap">
+      </div>
+    </section>
+  </section>
+</body>
+</html>
