@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avalanche</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="./css/vendors.css">
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/layout.js"></script>
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/parts.css">
+</head>
+<body>
+  <header class="navbar navbar-default navbar-fixed-top header">
+  <div class="navbar-header">
+    <a href="/" class="navbar-brand"><b>A</b><span>valanche</span></a>
+  </div>
+  <div class="container-fluid">
+    <a class="navbar-toggle navbar-toggle-left btn btn-default " href="#" id="js-switch-side-bar"><i class="fa fa-bars"></i> </a>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for...">
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right off-right" role="navigation">
+      <li class="quick-menu header--quick-menu">
+        <a id="account-menu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-circle icon-circle-header"><i class="fa fa-user"></i></span><span class="quick-menu-label mg-l-md">shingo.miyazawa <i class="fa fa-caret-down"></i></span></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="account-menu">
+          <li class="quick-menu-item" role="presentation"><a role="menuitem" tabindex="-1" href="/avalanche/preferences"><i class="fa fa-gear mg-r-md"></i>設定</a></li>
+          <li class="divider"></li>
+          <li class="quick-menu-item" role="presentation"><a role="menuitem" tabindex="-1" href="/"><i class="fa fa-sign-out mg-r-md"></i>ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+  <section class="body">
+    <aside class="sidebar">
+  <nav class="main-navigation">
+    <ul>
+      <li class="main-navigation-item"><a href="/avalanche/orders"><i class="fa fa-shopping-cart"></i><span> オーダー</span></a></li>
+      <li class="main-navigation-item is-active"><a href="/avalanche/products"><i class="fa fa-cube"></i><span> 商品</span></a></li>
+      <li class="main-navigation-item"><a href="/avalanche/customers"><i class="fa fa-users"></i><span> 顧客</span></a></li>
+      <li class="main-navigation-item dropdown show-on-hover">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-database"></i><span> 管理 </span><i class="fa right-arrow"></i></a>
+        <ul class="dropdown-menu ">
+          <li><a href="/avalanche/templates"><i class="fa fa-files-o"></i>  カートテンプレート</a></li>
+          <li><a href="/avalanche/email_templates"><i class="fa fa-envelope"></i> メールテンプレート</a></li>
+          <li><a href="/avalanche/coupons"><i class="fa fa-scissors"></i> クーポン</a></li>
+          <li class="divider"></li>
+          <li><a href="/avalanche/setting"><i class="fa fa-cog"></i></i> ストア設定</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
+    <section class="main-content">
+      <div class="content-wrap">
+
+        <div class="content-header">
+          <div class="row content-header--title-bar-one">
+            <div class="col-xs-6">
+              <h1><a href="#">レイアウトタイプ</a>: Confirm</h1>
+            </div>
+            <div class="col-xs-4">
+              <div style="line-height:30px;">最終更新日: 15-04-28 14:29</div>
+            </div>
+            <div class="col-xs-2" style="text-align: right;">
+              <button class="btn btn-warning btn-sm">保存</button>
+            </div>
+          </div>
+        </div>
+        <div class="content-main full-height">
+          <form class="form-horizontal js-template-editor full-height">
+            <div class="row form-group">
+              <div class="col-sm-6">
+                <input class="form-control" required="required" type="text" value="" name="email_template[subject]" placeholder="件名: confirm: {{#order}}{{number}}{{/order}}">
+              </div>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-default">プレビュー</button>
+                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">サンプルデータ編集</button>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-sm-6">
+                <input class="form-control" required="required" type="text" placeholder="From: xxx@example.com" name="email_template[subject]">
+              </div>
+              <div class="col-sm-6 full-height">
+                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default">HTML</button>
+                  <button type="button" class="btn btn-default">TEXT</button>
+                </div>
+              </div>
+            </div>
+            <div class="row full-height">
+              <div class="col-sm-12 full-height">
+                <div class="full-height">
+                  <textarea class="form-control" required="required" rows="22" data-template="html" name="email_template[html]" id="email_template_html">
+{{#order}}
+  Hi {{email}}<br/>
+  Order: {{number}}<br/>
+  Thank you for your order.<br/>
+  <br/>
+  {{#line_items}}{{name}}: {{display_price}} x {{quantity}} = {{display_amount}}{{/line_items}}<br/>
+  -----------------------<br/>
+  Total: {{display_total}}
+{{/order}}
+  </textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                  </div>
+                  <div class="modal-body js-template-sample-data" data-layout-type="confirm" data-class-name="EmailTemplate">
+                    <textarea style="height: 200px; width: 100%;"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-default js-reset-btn" href="#">リセット</button>
+                    <button class="btn btn-default js-update-btn" href="#"><span class="translation_missing" title="translation missing: ja.update">Update</span></button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </section>
+</body>
+</html>
